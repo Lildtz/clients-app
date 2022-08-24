@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Clientes</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Lista de Clientes</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="novoCadastro()">
+                <i class="fa fa-plus"></i>
+                Novo
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Data Cadastro</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <th scope="row">{{ cliente.id }}</th>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.dataCadastro }}</td>
+                        <td>
+                            <button class="btn btn-primary" [routerLink]="['/clientes-form', { id: cliente.id }]">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
